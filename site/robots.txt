@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://openworkprotocol.org/sitemap.xml
