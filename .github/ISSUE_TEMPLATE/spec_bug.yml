@@ -1,0 +1,31 @@
+name: Spec bug or ambiguity
+description: Identify an ambiguity, contradiction, missing invariant, or portability problem in the OWP specification.
+title: "[Spec] "
+labels: ["spec"]
+body:
+  - type: input
+    id: section
+    attributes:
+      label: Spec/profile section
+      placeholder: spec/OWP-0.2.md §...
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Show the ambiguity or contradiction with the smallest concrete example possible.
+    validations:
+      required: true
+  - type: textarea
+    id: interop
+    attributes:
+      label: Interoperability impact
+      description: How could two conforming implementations disagree?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed repair
+      description: Optional. Prefer the smallest compatible change.

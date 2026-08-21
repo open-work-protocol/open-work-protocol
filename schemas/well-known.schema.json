@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:well-known:0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "protocol_versions",
+    "profiles",
+    "roles"
+  ],
+  "properties": {
+    "protocol_versions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

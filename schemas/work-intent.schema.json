@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:work-intent:0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "protocol_version",
+    "work_id",
+    "goal",
+    "resources",
+    "attempt_price",
+    "currency",
+    "max_revisions",
+    "review_open",
+    "review_close",
+    "evidence_policy"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "0.2"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "attempt_price": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]{1,18})?$",
+      "description": "Non-negative decimal amount; interpretation depends on currency/profile."
+    },
+    "currency": {
+      "type": "string"
+    },
+    "max_revisions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "review_open": {
+      "type": "string"
+    },
+    "review_close": {
+      "type": "string"
+    },
+    "evidence_policy": {
+      "type": "string"
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[\\x20-\\x7E]+$"
+      },
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:delivery-manifest:0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "protocol_version",
+    "work_id",
+    "attempt_id",
+    "contract_hash",
+    "provider_id",
+    "repository",
+    "base_sha",
+    "result_sha",
+    "checks"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "0.2"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "attempt_id": {
+      "type": "string"
+    },
+    "contract_hash": {
+      "type": "string"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "base_sha": {
+      "type": "string"
+    },
+    "result_sha": {
+      "type": "string"
+    },
+    "tree_sha": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "checks": {
+      "type": "object"
+    },
+    "artifacts": {
+      "type": "array"
+    },
+    "pr_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "deployment_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[\\x20-\\x7E]+$"
+      },
+      "additionalProperties": true
+    }
+  }
+}

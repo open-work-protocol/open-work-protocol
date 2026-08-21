@@ -1,0 +1,25 @@
+{
+  "events": [
+    {
+      "type": "WORK_INTENT_CREATED"
+    },
+    {
+      "type": "PROVIDER_DECISION"
+    },
+    {
+      "type": "CONTRACT_LOCKED"
+    },
+    {
+      "type": "ATTEMPT_FUNDED"
+    },
+    {
+      "type": "DELIVERED"
+    },
+    {
+      "type": "VALIDATION"
+    },
+    {
+      "type": "CUSTOMER_DISPOSITION"
+    }
+  ]
+}

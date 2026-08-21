@@ -1,0 +1,8 @@
+{
+  "value": {
+    "a": 1,
+    "goal": "café",
+    "amount": "1000.00"
+  },
+  "expected_hash": "sha256:69341e7245d1c97ea0aa75f31c57d860db798aa07e306b33c728a48a9d3d0f76"
+}

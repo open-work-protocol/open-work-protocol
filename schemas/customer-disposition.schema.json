@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:customer-disposition:0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "protocol_version",
+    "work_id",
+    "attempt_id",
+    "disposition"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "0.2"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "attempt_id": {
+      "type": "string"
+    },
+    "disposition": {
+      "enum": [
+        "APPROVE",
+        "STEER",
+        "REJECT"
+      ]
+    },
+    "feedback": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[\\x20-\\x7E]+$"
+      },
+      "additionalProperties": true
+    }
+  }
+}

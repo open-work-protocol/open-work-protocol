@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:plain-contract-card:0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asked_for",
+    "you_receive",
+    "not_included",
+    "price_this_attempt",
+    "maximum_authorized_spend",
+    "ready_when",
+    "needs_from_you"
+  ],
+  "properties": {
+    "asked_for": {
+      "type": "string"
+    },
+    "you_receive": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_included": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "price_this_attempt": {
+      "type": "number",
+      "minimum": 0
+    },
+    "maximum_authorized_spend": {
+      "type": "number",
+      "minimum": 0
+    },
+    "ready_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "needs_from_you": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

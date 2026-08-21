@@ -1,0 +1,11 @@
+{
+  "extensions": {
+    "owp-work": {
+      "workId": "owp_demo_inventory_001",
+      "contractHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "attemptId": "attempt_001",
+      "providerId": "erc8004:eip155:8453:1234",
+      "chargeType": "base"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:provider-decision:0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "protocol_version",
+    "work_id",
+    "provider_id",
+    "decision",
+    "valid_until"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "0.2"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "ACCEPT",
+        "PASS"
+      ]
+    },
+    "valid_until": {
+      "type": "string"
+    },
+    "proof": {
+      "type": "string"
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[\\x20-\\x7E]+$"
+      },
+      "additionalProperties": true
+    }
+  }
+}

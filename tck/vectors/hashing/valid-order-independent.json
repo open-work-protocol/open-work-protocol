@@ -1,0 +1,8 @@
+{
+  "value": {
+    "z": "last",
+    "a": "first",
+    "n": 2
+  },
+  "expected_hash": "sha256:d0cb7bf7609ed37d5c8bbc5adb25b2cf91a9997ffe7122c2eae430ae73ad9ef0"
+}

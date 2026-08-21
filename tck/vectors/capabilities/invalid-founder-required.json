@@ -1,0 +1,12 @@
+{
+  "protocol_versions": [
+    "0.2"
+  ],
+  "profiles": [
+    "OWP-Core/0.2"
+  ],
+  "roles": [
+    "provider"
+  ],
+  "requires_founder_service": true
+}

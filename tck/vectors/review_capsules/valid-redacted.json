@@ -1,0 +1,13 @@
+{
+  "work_id": "w",
+  "category": "web-app",
+  "attempt_price": "1000.00",
+  "currency": "USD",
+  "review_close": "2026-12-31T00:00:00Z",
+  "languages": [
+    "python"
+  ],
+  "repo_size_band": "medium",
+  "access_mode": "metadata-only",
+  "disclosure_level": "redacted-v1"
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:attempt:0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "protocol_version",
+    "attempt_id",
+    "work_id",
+    "contract_hash",
+    "provider_id",
+    "revision"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "0.2"
+    },
+    "attempt_id": {
+      "type": "string"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "contract_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "parent_attempt_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "payment_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authority_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[\\x20-\\x7E]+$"
+      },
+      "additionalProperties": true
+    }
+  }
+}

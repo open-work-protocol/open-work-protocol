@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:outcome-request:0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "goal",
+    "budget"
+  ],
+  "properties": {
+    "goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "budget": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "deadline": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

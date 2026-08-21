@@ -1,0 +1,42 @@
+name: Interoperability report
+description: Report an independent OWP implementation, TCK run, provider adapter, or cross-provider result.
+title: "[Interop] "
+labels: ["interop"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What did you implement?
+      options:
+        - OWP-Core
+        - OWP-Git
+        - OWP-Simple
+        - A2A profile
+        - Commerce profile
+        - Trust profile
+        - Provider adapter
+        - Validator
+        - TCK implementation
+    validations:
+      required: true
+  - type: input
+    id: implementation
+    attributes:
+      label: Implementation/repository
+      placeholder: https://github.com/...
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Result
+      description: What interoperated, failed, or differed?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Reproduction/evidence
+      description: Commands, WorkIntent/DeliveryManifest fixtures, commit IDs, or TCK output.
+    validations:
+      required: true

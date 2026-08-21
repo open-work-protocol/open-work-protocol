@@ -1,0 +1,9 @@
+{
+  "work_id": "w",
+  "from_provider_id": "p",
+  "current_repository": "brokered://r",
+  "current_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "contract_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "attempts": [],
+  "remaining_revisions": 1
+}

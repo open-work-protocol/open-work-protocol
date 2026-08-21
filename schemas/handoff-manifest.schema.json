@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:handoff-manifest:0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "protocol_version",
+    "work_id",
+    "from_provider_id",
+    "current_repository",
+    "current_sha",
+    "contract_hash",
+    "attempts",
+    "remaining_revisions"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "0.2"
+    },
+    "work_id": {
+      "type": "string"
+    },
+    "from_provider_id": {
+      "type": "string"
+    },
+    "current_repository": {
+      "type": "string"
+    },
+    "current_sha": {
+      "type": "string"
+    },
+    "contract_hash": {
+      "type": "string"
+    },
+    "attempts": {
+      "type": "array"
+    },
+    "evidence_refs": {
+      "type": "array"
+    },
+    "customer_feedback": {
+      "type": "array"
+    },
+    "known_blockers": {
+      "type": "array"
+    },
+    "remaining_revisions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[\\x20-\\x7E]+$"
+      },
+      "additionalProperties": true
+    }
+  }
+}

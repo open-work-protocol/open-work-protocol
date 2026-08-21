@@ -1,0 +1,16 @@
+{
+  "capabilities": {
+    "extensions": [
+      {
+        "uri": "urn:owp:a2a:work-contract:0.2",
+        "required": false
+      }
+    ]
+  },
+  "skills": [
+    {
+      "id": "owp-git-work",
+      "name": "Git outcome execution"
+    }
+  ]
+}

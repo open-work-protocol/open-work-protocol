@@ -1,0 +1,33 @@
+name: Protocol RFC
+description: Propose a wire-semantic or governance change.
+title: "[RFC] "
+labels: ["rfc"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: wire
+    attributes:
+      label: Wire/schema/state-machine impact
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and migration
+    validations:
+      required: true
+  - type: textarea
+    id: security
+    attributes:
+      label: Security/economic/antitrust implications
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Rejected alternatives

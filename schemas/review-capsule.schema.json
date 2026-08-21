@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:owp:schema:review-capsule:0.2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "work_id",
+    "category",
+    "attempt_price",
+    "currency",
+    "review_close",
+    "access_mode",
+    "disclosure_level"
+  ],
+  "properties": {
+    "work_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "attempt_price": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]{1,18})?$",
+      "description": "Non-negative decimal amount; interpretation depends on currency/profile."
+    },
+    "currency": {
+      "type": "string"
+    },
+    "review_close": {
+      "type": "string"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repo_size_band": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sensitivity_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "access_mode": {
+      "enum": [
+        "none",
+        "metadata-only",
+        "brokered-read",
+        "public"
+      ]
+    },
+    "disclosure_level": {
+      "type": "string"
+    }
+  }
+}

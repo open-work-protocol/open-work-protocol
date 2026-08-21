@@ -1,0 +1,8 @@
+{
+  "protocol_version": "0.2",
+  "work_id": "owp_demo_inventory_001",
+  "provider_id": "erc8004:eip155:8453:1234",
+  "decision": "ACCEPT",
+  "valid_until": "2026-08-21T04:00:00Z",
+  "proof": "example-signature"
+}

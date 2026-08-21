@@ -1,0 +1,7 @@
+{
+  "work_id": "owp_demo",
+  "provider_id": "provider:c",
+  "decision": "ACCEPT",
+  "valid_until": "2026-12-31T00:00:00Z",
+  "bid_price": 50
+}

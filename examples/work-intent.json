@@ -1,0 +1,18 @@
+{
+  "protocol_version": "0.2",
+  "work_id": "owp_demo_inventory_001",
+  "goal": "Add persistent multi-location inventory with tests",
+  "resources": [
+    {
+      "forge": "github",
+      "repository": "example/inventory-app",
+      "base_ref": "main"
+    }
+  ],
+  "attempt_price": "1000.00",
+  "currency": "USD",
+  "max_revisions": 2,
+  "review_open": "2026-08-21T00:00:00Z",
+  "review_close": "2026-08-21T04:00:00Z",
+  "evidence_policy": "owp-git-0.2"
+}

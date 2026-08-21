@@ -1,0 +1,13 @@
+{
+  "protocol_versions": [
+    "0.2"
+  ],
+  "profiles": [
+    "OWP-Core/0.2",
+    "OWP-Git/0.2"
+  ],
+  "roles": [
+    "provider",
+    "validator"
+  ]
+}

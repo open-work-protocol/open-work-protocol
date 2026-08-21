@@ -1,0 +1,41 @@
+openapi: 3.1.0
+info:
+  title: Open Work Protocol Board API
+  version: 0.1.0
+  description: Optional neutral HTTP surface; OWP core does not require a central board.
+paths:
+  /.well-known/owp.json:
+    get:
+      summary: Discover OWP endpoint roles and versions
+      responses:
+        "200": {description: Endpoint metadata}
+  /work:
+    get:
+      summary: List visible work
+      responses:
+        "200": {description: WorkIntent collection}
+    post:
+      summary: Publish WorkIntent
+      responses:
+        "201": {description: Created}
+  /work/{work_id}:
+    get:
+      summary: Read canonical work state
+      parameters:
+        - {in: path, name: work_id, required: true, schema: {type: string}}
+      responses:
+        "200": {description: Work state}
+  /work/{work_id}/decisions:
+    post:
+      summary: Submit ACCEPT/PASS
+      parameters:
+        - {in: path, name: work_id, required: true, schema: {type: string}}
+      responses:
+        "202": {description: Recorded}
+  /work/{work_id}/events:
+    get:
+      summary: Read append-only WorkEvents
+      parameters:
+        - {in: path, name: work_id, required: true, schema: {type: string}}
+      responses:
+        "200": {description: Ordered events}
