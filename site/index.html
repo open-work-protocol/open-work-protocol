@@ -2,131 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Open Work Protocol — Portable, verifiable work for autonomous agents</title>
-  <meta name="description" content="Open Work Protocol (OWP) is a transport-neutral open work-contract layer for portable, verifiable work between customers and autonomous agent orchestrators.">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Open Work Protocol — Portable work between autonomous agents</title>
+  <meta name="description" content="Open Work Protocol (OWP) is an experimental, transport-neutral contract layer that lets work, evidence, validation and handoff move between autonomous agent providers without locking the job to one stack.">
   <meta name="theme-color" content="#0b1020">
+  <meta name="color-scheme" content="light">
   <link rel="canonical" href="https://openworkprotocol.org/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+
   <meta property="og:title" content="Open Work Protocol">
-  <meta property="og:description" content="Portable contracts. Verifiable delivery. Transferable work between autonomous agent orchestrators.">
+  <meta property="og:description" content="Give the job to one agent. Hand it to another without starting over.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://openworkprotocol.org/">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://openworkprotocol.org/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Open Work Protocol — Work should be portable between agents.">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Open Work Protocol">
-  <meta name="twitter:description" content="Portable contracts. Verifiable delivery. Transferable work between autonomous agent orchestrators.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230b1020'/><path d='M15 19h9l8 26 8-26h9L37 51H27z' fill='%23ffb84d'/></svg>">
+  <meta name="twitter:description" content="Give the job to one agent. Hand it to another without starting over.">
+  <meta name="twitter:image" content="https://openworkprotocol.org/og-card.png">
+
   <style>
     :root{
-      --bg:#f4f1ea;
-      --paper:#fffdf8;
-      --ink:#0b1020;
-      --muted:#5f6470;
-      --line:#d9d5cb;
-      --accent:#ff9f1c;
-      --accent2:#ffbf69;
-      --code:#121827;
-      --good:#166534;
-      --max:1180px;
-      --shadow:0 18px 50px rgba(11,16,32,.08);
+      --bg:#f4f1ea; --paper:#fffdf8; --ink:#0b1020; --muted:#5e6470;
+      --line:#d7d2c7; --accent:#ff9f1c; --accent2:#ffd28a; --good:#17653d;
+      --dark:#0b1020; --dark2:#151c2d; --white:#fff; --max:1180px;
+      --shadow:0 18px 54px rgba(11,16,32,.08); --radius:20px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at 10% 8%, rgba(255,159,28,.14), transparent 26rem),
-        radial-gradient(circle at 92% 10%, rgba(255,191,105,.16), transparent 28rem),
-        var(--bg);
-      line-height:1.55;
-    }
+    html{scroll-behavior:smooth;scroll-padding-top:82px}
+    body{margin:0;background:
+      radial-gradient(circle at 8% 6%,rgba(255,159,28,.14),transparent 25rem),
+      radial-gradient(circle at 96% 4%,rgba(255,210,138,.18),transparent 30rem),var(--bg);
+      color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
     a{color:inherit}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:8px}
     .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
-    nav{
-      position:sticky;top:0;z-index:20;
-      backdrop-filter:blur(18px);
-      background:rgba(244,241,234,.88);
-      border-bottom:1px solid rgba(217,213,203,.82);
-    }
-    nav .inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:-.02em}
-    .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:grid;place-items:center;color:var(--accent);font-weight:900;font-size:15px}
-    .navlinks{display:flex;gap:22px;align-items:center;font-size:14px}
-    .navlinks a{text-decoration:none;color:var(--muted)}
+    .skip{position:absolute;left:14px;top:-60px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;z-index:50;text-decoration:none;font-weight:800}
+    .skip:focus{top:12px}
+    nav{position:sticky;top:0;z-index:30;background:rgba(244,241,234,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(215,210,199,.85)}
+    nav .inner{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;letter-spacing:-.02em}
+    .mark{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--ink);color:var(--accent);font-weight:950}
+    .navlinks{display:flex;gap:20px;align-items:center;font-size:14px}
+    .navlinks a{text-decoration:none;color:var(--muted);font-weight:650}
     .navlinks a:hover{color:var(--ink)}
-    .github{border:1px solid var(--ink);border-radius:999px;padding:9px 14px!important;color:var(--ink)!important;font-weight:700}
-    .hero{padding:96px 0 70px}
-    .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);background:rgba(255,253,248,.72);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-    h1{font-size:clamp(52px,8vw,104px);line-height:.91;letter-spacing:-.065em;margin:26px 0 28px;max-width:1030px}
-    .hero .lead{font-size:clamp(19px,2.25vw,28px);line-height:1.35;max-width:850px;color:#353a45;letter-spacing:-.02em}
-    .hero strong{color:var(--ink)}
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-    .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;border-radius:11px;padding:13px 17px;font-weight:800;border:1px solid var(--ink);transition:.18s ease}
-    .btn.primary{background:var(--ink);color:white}
-    .btn.secondary{background:rgba(255,253,248,.78)}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(11,16,32,.12)}
-    .statusline{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
-    .pill{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:rgba(255,253,248,.62);color:var(--muted)}
-    section{padding:74px 0}
-    .section-head{display:grid;grid-template-columns:.65fr 1.35fr;gap:42px;margin-bottom:36px;align-items:start}
-    .kicker{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#7b5c2c;padding-top:7px}
-    h2{font-size:clamp(34px,5vw,64px);letter-spacing:-.05em;line-height:1;margin:0}
-    .section-copy{font-size:18px;color:var(--muted);max-width:760px;margin:18px 0 0}
-    .flow{
-      background:var(--ink);color:white;border-radius:22px;padding:28px;box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .flow-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:stretch}
-    .flow-step{min-height:136px;border:1px solid #30384e;border-radius:13px;padding:15px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,#171e30,#111727)}
-    .flow-num{color:var(--accent2);font-size:11px;font-weight:900;letter-spacing:.1em}
-    .flow-title{font-size:15px;font-weight:850;line-height:1.15}
-    .flow-arrow{color:#7e879c;font-size:18px;align-self:center}
-    .micro{font-size:12px;color:#9ca5b8;margin-top:22px}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:27px;box-shadow:0 8px 24px rgba(11,16,32,.04)}
-    .card h3{font-size:23px;letter-spacing:-.035em;margin:0 0 14px}
-    .card p{color:var(--muted);margin:0}
-    .checklist{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:11px}
+    .github{border:1px solid var(--ink);border-radius:999px;padding:9px 14px!important;color:var(--ink)!important;font-weight:850!important}
+    .menu{display:none;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:8px 11px;font-weight:800;cursor:pointer}
+    .mobile-panel{display:none;padding:0 0 14px}
+    .mobile-panel[data-open="true"]{display:grid;gap:6px}
+    .mobile-panel a{padding:10px 4px;text-decoration:none;font-weight:750;color:var(--muted)}
+
+    .hero{padding:92px 0 54px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(255,253,248,.76);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+    .dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
+    h1{font-size:clamp(52px,8vw,102px);line-height:.91;letter-spacing:-.067em;margin:25px 0 26px;max-width:1080px}
+    .hero .lead{font-size:clamp(20px,2.35vw,29px);line-height:1.34;max-width:900px;color:#353b47;letter-spacing:-.023em}
+    .plainline{margin-top:22px;max-width:900px;font-size:17px;color:var(--muted)}
+    .plainline strong{color:var(--ink)}
+    .actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border:1px solid var(--ink);border-radius:11px;padding:13px 17px;font-weight:850;transition:transform .18s ease,box-shadow .18s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(11,16,32,.11)}
+    .btn.primary{background:var(--ink);color:#fff}.btn.secondary{background:rgba(255,253,248,.78)}
+    .statusline{display:flex;flex-wrap:wrap;gap:8px;margin-top:27px}
+    .pill{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:rgba(255,253,248,.66);color:var(--muted)}
+
+    section{padding:70px 0}
+    .section-head{display:grid;grid-template-columns:.62fr 1.38fr;gap:42px;margin-bottom:34px;align-items:start}
+    .kicker{font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.12em;color:#825d24;padding-top:7px}
+    h2{font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-.052em;margin:0}
+    h3{letter-spacing:-.03em}
+    .section-copy{font-size:18px;color:var(--muted);max-width:790px;margin:18px 0 0}
+
+    .remember{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:24px;padding:36px;display:grid;grid-template-columns:.55fr 1.45fr;gap:36px;align-items:center}
+    .remember .label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:950;color:#825d24}
+    .remember .big{font-size:clamp(27px,3.6vw,48px);line-height:1.04;letter-spacing:-.045em;font-weight:900}
+    .remember p{margin:12px 0 0;color:var(--muted);font-size:17px}
+
+    .example{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .example-card{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:24px;position:relative;min-height:190px}
+    .example-card .n{font-size:11px;font-weight:950;letter-spacing:.1em;color:#8b6426;text-transform:uppercase}
+    .example-card h3{font-size:22px;margin:24px 0 8px}.example-card p{color:var(--muted);margin:0}
+    .example-card:not(:last-child):after{content:"→";position:absolute;right:-18px;top:50%;transform:translateY(-50%);width:22px;height:22px;background:var(--bg);display:grid;place-items:center;font-weight:950;z-index:2}
+
+    .flow{background:var(--dark);color:#fff;border-radius:24px;padding:29px;box-shadow:var(--shadow);overflow:hidden}
+    .flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}
+    .flow-step{min-height:138px;border:1px solid #30394f;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,#182034,#101626)}
+    .flow-num{font-size:11px;font-weight:950;letter-spacing:.1em;color:var(--accent2)}
+    .flow-title{font-size:17px;font-weight:900;line-height:1.15}.flow-desc{font-size:12px;color:#aab3c5;margin-top:8px}
+    .flow-note{margin:20px 2px 0;color:#aeb7c9;font-size:13px}
+
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:19px;padding:27px;box-shadow:0 8px 25px rgba(11,16,32,.04)}
+    .card h3{font-size:24px;margin:0 0 12px}.card p{color:var(--muted);margin:0}
+    .checklist{list-style:none;padding:0;margin:21px 0 0;display:grid;gap:11px}
     .checklist li{display:flex;gap:11px;align-items:flex-start}
-    .checklist li:before{content:"✓";font-weight:900;color:var(--good)}
-    .not li:before{content:"—";color:#9c5a26}
-    .audiences{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .audiences .card{min-height:245px}
-    .audiences .who{font-size:12px;font-weight:900;color:#7b5c2c;text-transform:uppercase;letter-spacing:.1em;margin-bottom:30px}
-    .audiences a{display:inline-block;margin-top:18px;font-weight:800;text-decoration:none;border-bottom:2px solid var(--accent)}
-    .codebox{background:var(--code);color:#eaf0ff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-    .codebar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2a3246;padding:12px 15px;color:#a8b1c4;font-size:12px}
+    .checklist li:before{content:"✓";font-weight:950;color:var(--good)}
+    .not li:before{content:"—";color:#9a672e}
+
+    .audiences{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .audiences .card{min-height:260px}.who{font-size:11px;font-weight:950;color:#805d25;text-transform:uppercase;letter-spacing:.1em;margin-bottom:27px}
+    .audiences a{display:inline-block;margin-top:17px;text-decoration:none;font-weight:850;border-bottom:2px solid var(--accent)}
+
+    .dev-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:20px;align-items:stretch}
+    .dev-summary{background:var(--paper);border:1px solid var(--line);border-radius:19px;padding:27px}
+    .dev-summary h3{font-size:28px;margin:0 0 12px}.dev-summary p{color:var(--muted)}
+    .mini-list{display:grid;gap:10px;margin-top:21px}.mini-row{display:flex;gap:10px}.mini-row strong{min-width:88px}
+    .codebox{background:var(--dark);color:#edf2ff;border-radius:19px;overflow:hidden;box-shadow:var(--shadow)}
+    .codebar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2d364b;padding:12px 15px;color:#aab3c7;font-size:12px}
     pre{margin:0;padding:22px;overflow:auto;font:14px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-    button.copy{border:1px solid #46506a;background:#1c2437;color:#eaf0ff;border-radius:7px;padding:6px 10px;font:inherit;cursor:pointer}
-    .principle{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:88px 0}
-    blockquote{font-size:clamp(34px,5vw,67px);line-height:1.02;letter-spacing:-.05em;margin:0;max-width:1100px}
-    blockquote em{font-style:normal;color:#9a651d}
-    .origin{margin-top:26px;color:var(--muted);font-size:14px}
+    .copy{border:1px solid #46516c;background:#1c253a;color:#eef3ff;border-radius:8px;padding:6px 10px;font:inherit;cursor:pointer}
+
     .proof{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .metric{border-top:3px solid var(--ink);padding-top:16px}
-    .metric strong{display:block;font-size:36px;letter-spacing:-.05em}
-    .metric span{font-size:13px;color:var(--muted)}
-    .cta{background:var(--ink);color:white;border-radius:24px;padding:54px}
-    .cta h2{max-width:800px}
-    .cta p{color:#b9c0cf;font-size:18px;max-width:720px}
-    footer{padding:44px 0 70px;color:var(--muted);font-size:13px}
-    footer .inner{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;border-top:1px solid var(--line);padding-top:24px}
-    .footerlinks{display:flex;gap:16px;flex-wrap:wrap}
-    @media (max-width:900px){
-      .navlinks a:not(.github){display:none}
-      .section-head{grid-template-columns:1fr;gap:10px}
-      .flow-grid{grid-template-columns:1fr}
-      .flow-step{min-height:auto}
-      .flow-arrow{transform:rotate(90deg)}
-      .split,.audiences,.proof{grid-template-columns:1fr}
-      h1{font-size:clamp(48px,14vw,80px)}
-      .hero{padding-top:70px}
-      .cta{padding:34px 24px}
+    .metric{border-top:3px solid var(--ink);padding-top:15px}.metric strong{display:block;font-size:38px;letter-spacing:-.055em}.metric span{font-size:13px;color:var(--muted)}
+    .proofnote{font-size:12px;color:var(--muted);margin-top:16px}
+
+    .faq{display:grid;gap:10px}.faq details{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:0 18px}.faq summary{cursor:pointer;font-weight:850;padding:17px 0}.faq p{margin:0 0 18px;color:var(--muted)}
+    .principle{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:84px 0}
+    blockquote{font-size:clamp(35px,5vw,66px);line-height:1.02;letter-spacing:-.052em;margin:0;max-width:1110px}blockquote em{font-style:normal;color:#9b681e}
+    .origin{margin-top:25px;color:var(--muted);font-size:14px;max-width:850px}
+    .cta{background:var(--dark);color:#fff;border-radius:25px;padding:52px}.cta p{color:#b6bfd0;font-size:18px;max-width:730px}.cta .kicker{color:var(--accent2)}
+    footer{padding:43px 0 68px;color:var(--muted);font-size:13px}.footer-inner{display:flex;justify-content:space-between;gap:30px;border-top:1px solid var(--line);padding-top:24px}.footerlinks{display:flex;gap:16px;flex-wrap:wrap}
+
+    @media(max-width:900px){
+      .navlinks{display:none}.menu{display:block}.section-head,.remember,.dev-grid{grid-template-columns:1fr;gap:14px}.example,.audiences,.proof,.split{grid-template-columns:1fr}.example-card:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-20px;transform:translateX(-50%)}.flow-grid{grid-template-columns:1fr}.flow-step{min-height:auto}.hero{padding-top:66px}h1{font-size:clamp(48px,14vw,78px)}.cta{padding:34px 24px}.footer-inner{flex-direction:column}.remember{padding:27px}
     }
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
   </style>
+
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -135,220 +140,152 @@
     "alternateName":"OWP",
     "codeRepository":"https://github.com/open-work-protocol/open-work-protocol",
     "license":"https://www.apache.org/licenses/LICENSE-2.0",
-    "description":"A transport-neutral open work-contract layer for portable, verifiable work between customers and autonomous agent orchestrators."
+    "url":"https://openworkprotocol.org/",
+    "description":"An experimental transport-neutral contract layer for portable, verifiable work between autonomous agent providers."
   }
   </script>
 </head>
 <body>
-  <nav>
-    <div class="wrap inner">
-      <a class="brand" href="#top"><span class="mark">W</span><span>Open Work Protocol</span></a>
-      <div class="navlinks">
-        <a href="#how">How it works</a>
-        <a href="#scope">Scope</a>
-        <a href="#implement">Implement</a>
-        <a class="github" href="https://github.com/open-work-protocol/open-work-protocol">GitHub ↗</a>
+<a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Primary navigation">
+  <div class="wrap inner">
+    <a class="brand" href="/"><span class="mark" aria-hidden="true">W</span><span>Open Work Protocol</span></a>
+    <div class="navlinks">
+      <a href="#example">60-second example</a><a href="#how">How it works</a><a href="#developers">Developers</a><a href="#faq">FAQ</a>
+      <a class="github" href="https://github.com/open-work-protocol/open-work-protocol">GitHub ↗</a>
+    </div>
+    <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+  </div>
+  <div class="wrap mobile-panel" id="mobile-menu" data-open="false">
+    <a href="#example">60-second example</a><a href="#how">How it works</a><a href="#developers">Developers</a><a href="#faq">FAQ</a><a href="https://github.com/open-work-protocol/open-work-protocol">GitHub ↗</a>
+  </div>
+</nav>
+
+<main id="main">
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span> Experimental 0.2 · Open infrastructure</div>
+      <h1>Work should be portable between agents.</h1>
+      <p class="lead"><strong>Give the job to one agent. Hand it to another without starting over.</strong> OWP standardizes the contract, evidence, validation and handoff around a job while each provider keeps its own models, tools and internal architecture.</p>
+      <p class="plainline"><strong>Not another agent platform.</strong> OWP is the small shared boundary that lets different agent systems agree on what was requested, what was delivered, whether it passed, and what the next provider inherits.</p>
+      <div class="actions">
+        <a class="btn primary" href="#example">See it in 60 seconds →</a>
+        <a class="btn secondary" href="https://github.com/open-work-protocol/open-work-protocol/blob/main/spec/OWP-0.2.md">Read the 0.2 spec</a>
+        <a class="btn secondary" href="#developers">Run the TCK</a>
+      </div>
+      <div class="statusline" aria-label="Project traits">
+        <span class="pill">Apache-2.0</span><span class="pill">Git-first evidence</span><span class="pill">A2A-compatible profile</span><span class="pill">No mandatory broker</span><span class="pill">No mandatory chain</span><span class="pill">No canonical scorer</span>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <main id="top">
-    <header class="hero">
-      <div class="wrap">
-        <div class="eyebrow"><span class="dot"></span> Experimental 0.2 · Open infrastructure</div>
-        <h1>Work should be portable between agents.</h1>
-        <p class="lead">
-          <strong>Open Work Protocol</strong> is a transport-neutral work-contract layer for customers and autonomous agent orchestrators:
-          define the outcome, accept the work, prove what shipped, validate it independently, and hand it to another provider without starting over.
-        </p>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/open-work-protocol/open-work-protocol/blob/main/spec/OWP-0.2.md">Read the 0.2 spec →</a>
-          <a class="btn secondary" href="#implement">Run the TCK</a>
-          <a class="btn secondary" href="https://github.com/open-work-protocol/open-work-protocol/issues">Break the protocol</a>
-        </div>
-        <div class="statusline">
-          <span class="pill">Apache-2.0</span>
-          <span class="pill">Git-first evidence</span>
-          <span class="pill">A2A-compatible profile</span>
-          <span class="pill">No mandatory broker</span>
-          <span class="pill">No mandatory chain</span>
-          <span class="pill">No canonical scorer</span>
-        </div>
+  <section id="example">
+    <div class="wrap">
+      <div class="remember">
+        <div><div class="label">If you remember one thing</div></div>
+        <div><div class="big">The work belongs to the contract and its evidence—not to whichever agent started it.</div><p>That makes switching providers a handoff instead of a restart.</p></div>
       </div>
-    </header>
 
-    <section id="how">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="kicker">The missing layer</div>
-          <div>
-            <h2>A contract for the work—not the agent.</h2>
-            <p class="section-copy">Providers keep their own models, prompts, subagents, tools, economics, payment systems and internal architecture. OWP standardizes only the portable boundary around the job.</p>
-          </div>
-        </div>
-
-        <div class="flow" aria-label="OWP work lifecycle">
-          <div class="flow-grid">
-            <div class="flow-step"><span class="flow-num">01</span><span class="flow-title">Work<br>Contract</span></div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step"><span class="flow-num">02</span><span class="flow-title">Paid<br>Attempt</span></div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step"><span class="flow-num">03</span><span class="flow-title">Delivery<br>Manifest</span></div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step"><span class="flow-num">04</span><span class="flow-title">Independent<br>Validation</span></div>
-          </div>
-          <div class="micro">Then the customer can APPROVE, STEER or REJECT. A provider may REMEDY or PASS. If it passes, another provider can inherit the exact contract, Git state and evidence.</div>
-        </div>
+      <div class="section-head" style="margin-top:64px">
+        <div class="kicker">A normal-person example</div>
+        <div><h2>“Build me a landing page for $500.”</h2><p class="section-copy">You should not need to understand protocols, Git, model routing or agent orchestration to benefit from portability.</p></div>
       </div>
-    </section>
-
-    <section id="scope">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="kicker">Ownership boundary</div>
-          <div>
-            <h2>Small enough for competitors to adopt.</h2>
-            <p class="section-copy">OWP is intentionally not another agent platform. It composes with the protocols and infrastructure already winning the ecosystem.</p>
-          </div>
-        </div>
-        <div class="split">
-          <article class="card">
-            <h3>OWP owns</h3>
-            <p>Portable outcome-work semantics.</p>
-            <ul class="checklist">
-              <li>Accepted outcome and locked acceptance requirements</li>
-              <li>Immutable attempt and revision lineage</li>
-              <li>Git-backed delivery evidence</li>
-              <li>Customer approve / steer / reject disposition</li>
-              <li>Cross-provider handoff state</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>OWP does not own</h3>
-            <p>Existing ecosystem layers stay where they belong.</p>
-            <ul class="checklist not">
-              <li>Agent transport or RPC — use A2A or what you already use</li>
-              <li>Tool/context access — MCP remains MCP</li>
-              <li>Payment networks — x402 and others can bind optionally</li>
-              <li>Identity/reputation — external trust systems remain external</li>
-              <li>Git hosting, models, prompts, scorers or provider internals</li>
-            </ul>
-          </article>
-        </div>
+      <div class="example">
+        <article class="example-card"><div class="n">1 · Agree</div><h3>Agent A accepts the job.</h3><p>The outcome and acceptance requirements are locked so everyone knows what “done” means.</p></article>
+        <article class="example-card"><div class="n">2 · Prove</div><h3>Agent A delivers evidence.</h3><p>The work comes back with a delivery manifest, Git state and enough evidence for independent validation.</p></article>
+        <article class="example-card"><div class="n">3 · Hand off</div><h3>Agent B can continue.</h3><p>If the first provider stops, passes or needs replacement, the next one inherits the contract and history instead of reconstructing the job from chat.</p></article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <div class="kicker">One protocol, different users</div>
-          <div><h2>The complexity stays underneath.</h2></div>
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">The shared boundary</div><div><h2>A contract for the work—not the agent.</h2><p class="section-copy">OWP-Core is intentionally narrow. It describes the portable lifecycle around outcome work and leaves transport, tools, models, economics and provider internals where they already belong.</p></div></div>
+      <div class="flow" aria-label="OWP work lifecycle">
+        <div class="flow-grid">
+          <div class="flow-step"><span class="flow-num">01</span><div><div class="flow-title">Contract</div><div class="flow-desc">Outcome + acceptance requirements.</div></div></div>
+          <div class="flow-step"><span class="flow-num">02</span><div><div class="flow-title">Accept / Pass</div><div class="flow-desc">A provider privately decides whether to take it.</div></div></div>
+          <div class="flow-step"><span class="flow-num">03</span><div><div class="flow-title">Deliver</div><div class="flow-desc">Artifact + immutable evidence + lineage.</div></div></div>
+          <div class="flow-step"><span class="flow-num">04</span><div><div class="flow-title">Validate</div><div class="flow-desc">Technical validity stays separate from taste.</div></div></div>
+          <div class="flow-step"><span class="flow-num">05</span><div><div class="flow-title">Approve / Steer / Handoff</div><div class="flow-desc">Continue, revise, reject or transfer without erasing history.</div></div></div>
         </div>
-        <div class="audiences">
-          <article class="card">
-            <div class="who">Business owner</div>
-            <h3>“I need this built. My budget is $5,000.”</h3>
-            <p>The human-facing profile reduces the experience to describe → preview → approve → work → receive. No Git or protocol vocabulary required.</p>
-            <a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/profiles/SIMPLE_FLOW-0.1.md">Simple Flow →</a>
-          </article>
-          <article class="card">
-            <div class="who">Orchestrator builder</div>
-            <h3>Keep your entire agent stack.</h3>
-            <p>Add the smallest provider boundary: review a job, ACCEPT/PASS, execute however you already execute, emit evidence, and hand off if needed.</p>
-            <a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/docs/PROVIDER_ADOPTION_15_MINUTES.md">Provider guide →</a>
-          </article>
-          <article class="card">
-            <div class="who">Standards / OSS reviewer</div>
-            <h3>Make OWP smaller.</h3>
-            <p>The project explicitly asks where these semantics overlap A2A, MCP, Git or another open standard—and should move upstream instead.</p>
-            <a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/docs/STANDARDS_COMMITTEE_PACKET.md">Review packet →</a>
-          </article>
-        </div>
+        <div class="flow-note">OWP does not require a marketplace, payment rail, blockchain, cloud service, founder API, provider registry or quality scorer.</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="implement">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="kicker">Prove, don't pitch</div>
-          <div>
-            <h2>Run the implementation.</h2>
-            <p class="section-copy">The seed repository ships a reference core, conformance vectors and a real Git-backed two-provider journey. The most useful next contribution is an independent implementation or a concrete interoperability failure.</p>
-          </div>
-        </div>
-        <div class="codebox">
-          <div class="codebar"><span>shell</span><button class="copy" data-copy="git clone https://github.com/open-work-protocol/open-work-protocol.git && cd open-work-protocol && PYTHONPATH=src python3 -m owp.cli tck && PYTHONPATH=src python3 -m owp.cli golden-demo --json">Copy</button></div>
-          <pre><code>git clone https://github.com/open-work-protocol/open-work-protocol.git
+  <section id="scope">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Ownership boundary</div><div><h2>Small enough for competitors to adopt.</h2><p class="section-copy">A protocol is easier to share when it does not ask adopters to surrender the systems they already own.</p></div></div>
+      <div class="split">
+        <article class="card"><h3>OWP standardizes</h3><p>The portable outcome-work semantics.</p><ul class="checklist"><li>Accepted outcome and locked acceptance requirements</li><li>Attempt and revision lineage</li><li>Delivery manifests and Git-backed evidence</li><li>Independent technical validation semantics</li><li>Customer disposition and cross-provider handoff state</li></ul></article>
+        <article class="card"><h3>OWP leaves alone</h3><p>Existing ecosystem layers stay where they belong.</p><ul class="checklist not"><li>Agent transport/RPC — use A2A or what you already use</li><li>Tool/context access — MCP remains MCP</li><li>Payment networks — x402/AP2/etc. can bind optionally</li><li>Identity and reputation systems</li><li>Models, prompts, scorers, subagents and provider economics</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Three entry points</div><div><h2>Use the depth you need.</h2></div></div>
+      <div class="audiences">
+        <article class="card"><div class="who">Everyday customer</div><h3>Describe the result. Receive the result.</h3><p>The human-facing profile can hide Git and protocol vocabulary behind a simple describe → preview → approve → work → receive flow.</p><a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/profiles/SIMPLE_FLOW-0.1.md">See Simple Flow →</a></article>
+        <article class="card"><div class="who">Orchestrator developer</div><h3>Keep your entire stack.</h3><p>Add the provider boundary: inspect a contract, ACCEPT/PASS, execute however you already execute, emit evidence, and hand off when needed.</p><a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/docs/PROVIDER_ADOPTION_15_MINUTES.md">15-minute provider guide →</a></article>
+        <article class="card"><div class="who">Standards / OSS reviewer</div><h3>Make OWP smaller.</h3><p>If a semantic already belongs in A2A, MCP, Git or another open standard, the project explicitly wants that overlap challenged and moved upstream.</p><a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/docs/STANDARDS_COMMITTEE_PACKET.md">Review packet →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="developers">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Developer fast path</div><div><h2>Clone it. Run it. Break it.</h2><p class="section-copy">The seed repository contains a reference core, conformance vectors and a Git-backed two-provider journey. You do not need a wallet, chain, marketplace or hosted service.</p></div></div>
+      <div class="dev-grid">
+        <div class="dev-summary"><h3>The “take this and run” path.</h3><p>Start with OWP-Core + OWP-Git, then implement the smallest boundary your orchestrator needs.</p><div class="mini-list"><div class="mini-row"><strong>1. Read</strong><span>OWP 0.2 core semantics.</span></div><div class="mini-row"><strong>2. Prove</strong><span>Run the TCK vectors locally.</span></div><div class="mini-row"><strong>3. Adapt</strong><span>Map your provider to ACCEPT/PASS + delivery evidence.</span></div><div class="mini-row"><strong>4. Attack</strong><span>Report ambiguity or interoperability failures as issues.</span></div></div><div class="actions"><a class="btn secondary" href="https://github.com/open-work-protocol/open-work-protocol/blob/main/docs/PROVIDER_ADOPTION_15_MINUTES.md">Provider guide</a></div></div>
+        <div class="codebox"><div class="codebar"><span>shell · no install step required for the seed CLI</span><button class="copy" type="button" data-copy="git clone https://github.com/open-work-protocol/open-work-protocol.git && cd open-work-protocol && PYTHONPATH=src python3 -m owp.cli tck && PYTHONPATH=src python3 -m owp.cli golden-demo --json">Copy</button></div><pre><code>git clone https://github.com/open-work-protocol/open-work-protocol.git
 cd open-work-protocol
 
-# Conformance
+# Conformance vectors
 PYTHONPATH=src python3 -m owp.cli tck
 
-# Full Git-backed two-provider journey
-PYTHONPATH=src python3 -m owp.cli golden-demo --json</code></pre>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="proof">
-          <div class="metric"><strong>24</strong><span>reference tests in the standards candidate</span></div>
-          <div class="metric"><strong>20</strong><span>TCK vectors in the seed conformance suite</span></div>
-          <div class="metric"><strong>2</strong><span>providers exercised in the golden handoff journey</span></div>
-          <div class="metric"><strong>0</strong><span>mandatory founder services required by OWP-Core</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="principle">
-      <div class="wrap">
-        <blockquote>Imagined by Keeltrace. <em>Built in Git.</em> Designed to be owned by no vendor.</blockquote>
-        <p class="origin">Origin is attribution—not a dependency or control claim. If the founding team disappeared, a conforming implementation should still be able to read the spec, validate work and interoperate.</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap cta">
-        <div class="kicker" style="color:#ffbf69">The public challenge</div>
-        <h2>Don't endorse it. Try to break it.</h2>
-        <p>Implement OWP-Core in another language. Connect an unrelated orchestrator. Attack the ReviewCapsule. Build a stricter Git validator. Show where the protocol duplicates something better.</p>
-        <div class="actions">
-          <a class="btn primary" style="background:#ffb84d;color:#0b1020;border-color:#ffb84d" href="https://github.com/open-work-protocol/open-work-protocol/issues">Open issues →</a>
-          <a class="btn secondary" style="color:white;border-color:#687089;background:#171e30" href="https://github.com/open-work-protocol/open-work-protocol">View repository →</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap inner">
-      <div>
-        <strong>Open Work Protocol</strong><br>
-        Experimental 0.2 · Apache-2.0 · Not a standard · No vendor/foundation endorsement implied.
-      </div>
-      <div class="footerlinks">
-        <a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/spec/OWP-0.2.md">Spec</a>
-        <a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/GOVERNANCE.md">Governance</a>
-        <a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/CONTRIBUTING.md">Contribute</a>
-        <a href="https://github.com/open-work-protocol/open-work-protocol">GitHub</a>
+# Real Git-backed two-provider journey
+PYTHONPATH=src python3 -m owp.cli golden-demo --json</code></pre></div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    document.querySelectorAll("[data-copy]").forEach(button => {
-      button.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(button.dataset.copy);
-          const old = button.textContent;
-          button.textContent = "Copied";
-          setTimeout(() => button.textContent = old, 1400);
-        } catch (_) {
-          button.textContent = "Select command below";
-        }
-      });
-    });
-  </script>
+  <section>
+    <div class="wrap">
+      <div class="proof">
+        <div class="metric"><strong>24</strong><span>reference tests in the current standards candidate</span></div><div class="metric"><strong>20</strong><span>TCK vectors in the seed conformance suite</span></div><div class="metric"><strong>2</strong><span>providers exercised in the golden handoff journey</span></div><div class="metric"><strong>0</strong><span>mandatory founder services required by OWP-Core</span></div>
+      </div>
+      <p class="proofnote">Seed-repository proof points, not ecosystem-adoption claims. OWP 0.2 remains experimental.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Fast answers</div><div><h2>What people usually ask first.</h2></div></div>
+      <div class="faq">
+        <details><summary>Is OWP another agent framework or marketplace?</summary><p>No. It does not tell a provider which model, framework, prompts, tools, subagents or marketplace to use. It standardizes the portable boundary around the job.</p></details>
+        <details><summary>Does OWP replace A2A or MCP?</summary><p>No. A2A can carry agent-to-agent communication; MCP can expose tools and context. OWP describes the outcome-work contract, evidence, validation, customer disposition and handoff that can travel over or alongside those layers.</p></details>
+        <details><summary>Does “valid delivery” mean the customer has to like it?</summary><p>No. OWP explicitly separates technical validity from customer approval. A delivery can satisfy objective validation while the customer still chooses APPROVE, STEER or REJECT according to the contract and applicable policy.</p></details>
+        <details><summary>Who controls OWP?</summary><p>The canonical repository lives in the Open Work Protocol GitHub organization. The project is designed so no founder API, hosted service, registry, scorer or vendor dependency is required to implement the protocol.</p></details>
+        <details><summary>What would be the most useful contribution right now?</summary><p>An independent implementation, an unrelated orchestrator adapter, a stricter validator, or a concrete example showing where OWP duplicates or conflicts with a better existing standard.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="principle"><div class="wrap"><blockquote>Imagined by Keeltrace. <em>Built in Git.</em> Designed to be owned by no vendor.</blockquote><p class="origin">Origin is attribution—not a dependency or control claim. If the founding team disappeared, a conforming implementation should still be able to read the spec, validate work and interoperate.</p></div></section>
+
+  <section><div class="wrap cta"><div class="kicker">The public challenge</div><h2>Don’t endorse it. Try to break it.</h2><p>Implement OWP-Core in another language. Connect an unrelated orchestrator. Attack the ReviewCapsule. Build a stricter Git validator. Show where the protocol duplicates something better.</p><div class="actions"><a class="btn primary" style="background:#ffb84d;color:#0b1020;border-color:#ffb84d" href="https://github.com/open-work-protocol/open-work-protocol/issues">Open an issue →</a><a class="btn secondary" style="color:white;border-color:#687089;background:#171e30" href="https://github.com/open-work-protocol/open-work-protocol">View repository →</a></div></div></section>
+</main>
+
+<footer><div class="wrap footer-inner"><div><strong>Open Work Protocol</strong><br>Experimental 0.2 · Apache-2.0 · Not a standard · No vendor/foundation endorsement implied.</div><div class="footerlinks"><a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/spec/OWP-0.2.md">Spec</a><a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/GOVERNANCE.md">Governance</a><a href="https://github.com/open-work-protocol/open-work-protocol/blob/main/CONTRIBUTING.md">Contribute</a><a href="https://github.com/open-work-protocol/open-work-protocol">GitHub</a></div></div></footer>
+
+<script>
+  const menu=document.querySelector('.menu'), panel=document.querySelector('#mobile-menu');
+  menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));panel.dataset.open=String(!open)});
+  panel?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');panel.dataset.open='false'}));
+  document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(button.dataset.copy);const old=button.textContent;button.textContent='Copied';setTimeout(()=>button.textContent=old,1400)}catch(_){button.textContent='Select command below'}}));
+</script>
 </body>
 </html>

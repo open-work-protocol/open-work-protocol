@@ -1,0 +1,9 @@
+{
+  "name": "Open Work Protocol",
+  "short_name": "OWP",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f1ea",
+  "theme_color": "#0b1020",
+  "icons": []
+}
