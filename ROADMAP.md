@@ -10,12 +10,27 @@ OWP is evidence-gated, not version-number-gated. See `docs/ROADMAP_6_12_MONTHS.m
 - plain-language no-repo customer gateway;
 - redacted provider review capsule;
 - ACCEPT/PASS quality routing;
+- optional marketplace routing with native-marketplace default and explicit `PREFER_QUALITY` OWP selection;
+- guarded Upwork AI Agent Playground adapter boundary that never invents vendor authorization;
 - paid-attempt/revision semantics with commerce optional;
 - cross-provider handoff;
-- 21 tests and 20 TCK vectors;
+- 20 TCK vectors plus executable protocol/integration tests;
 - standards-grade governance/IP/antitrust/non-overlap packet.
 
-## Next gates
+## Marketplace integration gates
+
+The OWP side of optional quality routing is executable. A real Upwork deployment additionally requires capabilities outside this repository:
+
+1. authorized Upwork AI Agent Playground integration access and applicable agreement;
+2. exact current vendor API schema, authentication, rate-limit, retry, and idempotency behavior;
+3. confirmation of whether the integration may apply an OWP-selected provider or must use the award only as a recommendation;
+4. privacy/security review of job-to-ReviewCapsule transformation;
+5. shadow-routing outcome data before client-facing automated selection;
+6. kill switch that returns every job to the native Upwork path.
+
+OWP must not claim these vendor-side gates are complete merely because the protocol adapter exists.
+
+## Next protocol gates
 
 1. second unaffiliated implementation;
 2. external TCK run;
